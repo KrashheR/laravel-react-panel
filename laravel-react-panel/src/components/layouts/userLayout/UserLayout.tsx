@@ -1,5 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useStateContext } from "../../../contexts/ContextProdiver"
+import { Button, Container } from "@mui/material";
+
+
 
 export default function UserLayout() {
   const {user, token} = useStateContext();
@@ -13,10 +16,10 @@ export default function UserLayout() {
   }
 
   return(
-    <div>
-      {user.name}
-      <a href="#" onClick={onLogout}>LOGOUT</a>
-      <Outlet />
-    </div>
+  <Container>
+    {user.name}
+    <a href="#" onClick={onLogout}>LOGOUT</a>
+    <Outlet />
+  </Container>
   )
 }

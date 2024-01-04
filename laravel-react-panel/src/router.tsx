@@ -5,8 +5,23 @@ import Users from "./pages/Users";
 import NotFound from "./pages/NotFound";
 import GuestLayout from "./components/layouts/guestLayout/GuestLayout";
 import UserLayout from "./components/layouts/userLayout/UserLayout";
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <UserLayout />,
+    children: [
+      {
+        path: "/users",
+        element: <Users />
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />
+      },
+    ]
+  },
   {
     path: "/",
     element: <GuestLayout />,
@@ -26,17 +41,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/",
-    element: <UserLayout />,
-    children: [
-      {
-        path: "/users",
-        element: <Users />
-      },
-    ]
-  },
-  {
-    path: "/",
+    path: "*",
     element: <NotFound />
   }
 ])
